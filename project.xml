@@ -1,0 +1,31 @@
+<project>
+    <extend>../plugin-parent/project.xml</extend>
+    <pomVersion>3</pomVersion>
+    <name>idegaWeb Application plugin</name>
+    <groupId>maven-plugins</groupId>
+    <artifactId>idegaweb-application-plugin</artifactId>
+    <currentVersion>1.0</currentVersion>
+    <organization/>
+    <inceptionYear>2004</inceptionYear>
+    <description>idegaweb Application Plugin for Maven</description>
+    <shortDescription>idegaWeb Application plugin for Maven</shortDescription>
+    <url>http://idega.com</url>
+    <issueTrackingUrl>http://issues.idega.is</issueTrackingUrl>
+    <repository>
+        <connection>scm:cvs:pserver:anoncvs@cvs.apache.org:/home/cvspublic:maven-plugins/war/</connection>
+        <developerConnection>scm:cvs:ext:${maven.username}@cvs.apache.org:/home/cvs:maven-plugins/war/</developerConnection>
+    </repository>
+    <versions/>
+    <branches/>
+    <mailingLists/>
+    <developers>
+        <developer>
+            <name>Tryggvi Larusson</name>
+            <id>tryggvil</id>
+            <email>tryggvi@idega.is</email>
+            <organization>idega software</organization>
+            <roles/>
+        </developer>
+    </developers>
+    <properties/>
+</project>
