@@ -156,6 +156,17 @@
 	         		<ant:filename name="**/*.jar"/>
 	         	</ant:fileset>
 	         </ant:move>
+	         
+	         <!--Copy all .tlds from the bundle to the common WEB-INF/tld -->
+	         <j:set var="idegaweb.application.bundle.tldsdir" value="${idegaweb.application.bundles.build.dir}/${dep.artifactId}.bundle/WEB-INF/tld/"/>
+	         <util:available file="${idegaweb.application.bundle.tldsdir}">
+		         <ant:move todir="${webapp.build.tlds}" >
+		         	<ant:fileset
+		         		dir="${idegaweb.application.bundle.tldsdir}">
+		         		<ant:filename name="**/*.tld"/>
+		         	</ant:fileset>
+		         </ant:move>
+	         </util:available>      
 			
          </j:if> 
       <j:set var="targetPath" value="${dep.getProperty('war.target.path')}"/> 
@@ -165,9 +176,21 @@
     </j:forEach>
 	
 	<!-- Merge all bundle web.xmls to the common WEB-INF/web.xml -->
-	<iwapp:mergewebinfs tofile="${webapp.build.webxml}" 
+	<iwapp:mergewebxmls tofile="${webapp.build.webxml}" 
 		bundlesfolder="${idegaweb.application.bundles.build.dir}"/>
-	
+
+
+	<!-- Set and copy WEB-INF/faces-config.xml -->
+	<j:set var="webapp.build.facesconfigxml" value="${webapp.build.webinf}/faces-config.xml"/>
+	<j:set var="idegaweb.application.facesconfigxml" value="${idegaweb.application.src}/WEB-INF/faces-config.xml" />
+	<util:available file="${idegaweb.application.facesconfigxml}">
+      <ant:copy file="${idegaweb.application.facesconfigxml}"
+        tofile="${webapp.build.facesconfigxml}"
+        overwrite="true" />
+    </util:available>
+	<!-- Merge all bundle faces-config.xmls to the common WEB-INF/faces-config.xml -->
+	<iwapp:mergefacesconfigs tofile="${webapp.build.facesconfigxml}" 
+		bundlesfolder="${idegaweb.application.bundles.build.dir}"/>		
 <!--
     <util:available file="${maven.build.dest}">
       <ant:copy todir="${webapp.build.classes}">
@@ -260,6 +283,21 @@
     <j:set var="idegaweb.application.webapp.dir" value="${idegaweb.application.src}"/>
     <attainGoal name="iw-application:webapp"/>
   </goal> 
+
+  <!--==================================================================-->
+  <!-- Generate Eclipse projectSet file                                  -->
+  <!--==================================================================-->    
+  <goal name="iw-application:generate-eclipse-projectset"
+    description="Generate Eclipse projectSet file">
+  
+    <ant:echo>Creating ${basedir}/projectSet.psf ...</ant:echo>                
+    <j:file name="${basedir}/projectSet.psf" prettyPrint="true" outputMode="xml" xmlns="dummy">
+      <j:import file="${plugin.resources}/templates/projectSet.jelly" inherit="true"/>    
+    </j:file>
+    
+  </goal>
+
+
 
   <!--==================================================================-->
   <!-- Special no-op goal which can be used by other plugin which need  -->

@@ -39,7 +39,7 @@
     <dependency>
       <artifactId>com.idega.core</artifactId>
       <groupId>bundles</groupId>
-      <version>1.9</version>
+      <version>SNAPSHOT</version>
       <url>http://www.idega.com/</url>
       <properties>
         <eclipse.dependency>true</eclipse.dependency>
