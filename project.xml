@@ -6,7 +6,7 @@
   <name>idegaWeb Application plugin</name>
   <groupId>maven-plugins</groupId>
   <artifactId>idegaweb-application-plugin</artifactId>
-  <currentVersion>1.1</currentVersion>
+  <currentVersion>1.2-SNAPSHOT</currentVersion>
   <organization/>
   <inceptionYear>2004</inceptionYear>
   <description>idegaweb Application Plugin for Maven</description>
