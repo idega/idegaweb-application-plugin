@@ -2,6 +2,9 @@
 <!-- 
 /*
  * Copyright 2004 idega Software
+ *
+ * @author tryggvil
+ *
  */
  -->
 
@@ -9,7 +12,8 @@
          xmlns:license="license"
          xmlns:util="jelly:util"
          xmlns:ant="jelly:ant"
-         xmlns:artifact="artifact">
+         xmlns:artifact="artifact"
+         xmlns:iwapp="jelly:com.idega.maven.application.IWApplicationTagLibrary">
 
   <!--==================================================================-->
   <!-- Default goal : Build an idegaweb bundle file                      -->
@@ -119,9 +123,11 @@
       </ant:copy>
     </j:if>
     
+    <j:set var="webapp.build.webxml" value="${webapp.build.webinf}/web.xml"/>
+    
     <util:available file="${idegaweb.application.webxml}">
       <ant:copy file="${idegaweb.application.webxml}"
-        tofile="${webapp.build.webinf}/web.xml"
+        tofile="${webapp.build.webxml}"
         overwrite="true" />
     </util:available>
 
@@ -150,14 +156,17 @@
 	         		<ant:filename name="**/*.jar"/>
 	         	</ant:fileset>
 	         </ant:move>
-
+			
          </j:if> 
       <j:set var="targetPath" value="${dep.getProperty('war.target.path')}"/> 
       <j:if test="${!empty(targetPath)}">
         <ant:copy todir="${idegaweb.application.webapp.dir}/${targetPath}" file="${lib.path}"/>
       </j:if>
     </j:forEach>
-
+	
+	<!-- Merge all bundle web.xmls to the common WEB-INF/web.xml -->
+	<iwapp:mergewebinfs tofile="${webapp.build.webxml}" 
+		bundlesfolder="${idegaweb.application.bundles.build.dir}"/>
 	
 <!--
     <util:available file="${maven.build.dest}">

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<classpath>
+  <classpathentry excluding="" kind="src" path="src/java">
+  </classpathentry>
+  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+  </classpathentry>
+  <classpathentry kind="src" path="/com.idega.core">
+  </classpathentry>
+  <classpathentry kind="var" path="MAVEN_REPO/ant/jars/ant-1.6.jar">
+  </classpathentry>
+  <classpathentry kind="var" path="MAVEN_REPO/commons-jelly/jars/commons-jelly-20030902.160215.jar">
+  </classpathentry>
+  <classpathentry kind="var" path="MAVEN_REPO/commons-logging/jars/commons-logging-1.0.3.jar">
+  </classpathentry>
+  <classpathentry kind="output" path="target/classes">
+  </classpathentry>
+</classpath>

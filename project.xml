@@ -11,10 +11,6 @@
     <shortDescription>idegaWeb Application plugin for Maven</shortDescription>
     <url>http://idega.com</url>
     <issueTrackingUrl>http://issues.idega.is</issueTrackingUrl>
-    <repository>
-        <connection>scm:cvs:pserver:anoncvs@cvs.apache.org:/home/cvspublic:maven-plugins/war/</connection>
-        <developerConnection>scm:cvs:ext:${maven.username}@cvs.apache.org:/home/cvs:maven-plugins/war/</developerConnection>
-    </repository>
     <versions/>
     <branches/>
     <mailingLists/>
@@ -27,5 +23,35 @@
             <roles/>
         </developer>
     </developers>
+  <dependencies>
+    <dependency>
+	  <artifactId>com.idega.core</artifactId>
+	  <groupId>bundles</groupId>
+	  <version>2.0</version>
+	  <url>http://www.idega.com/</url>
+		<properties>
+		    <eclipse.dependency>true</eclipse.dependency>
+		</properties>
+    </dependency>
+    <dependency>
+      <groupId>ant</groupId>
+      <artifactId>ant</artifactId>
+      <version>1.6</version>
+      <url>http://ant.apache.org/</url>
+    </dependency>
+    <dependency>
+      <groupId>commons-jelly</groupId>
+      <artifactId>commons-jelly</artifactId>
+      <version>20030902.160215</version>
+      <url>http://jakarta.apache.org/commons/jelly/</url>
+    </dependency>
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>1.0.3</version>
+      <url>http://jakarta.apache.org/commons/logging/</url>
+    </dependency>
+    </dependencies>    
+    
     <properties/>
 </project>
