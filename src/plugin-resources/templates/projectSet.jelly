@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<j:whitespace
+  xmlns:j="jelly:core"
+  xmlns:util="jelly:util"
+  xmlns:ant="jelly:ant"
+  xmlns:maven="jelly:maven"
+  xmlns:u="jelly:util"
+  xmlns="dummy"
+  trim="true">
+<psf version="2.0">
+	<provider id="org.eclipse.team.cvs.core.cvsnature">
+	
+  <j:forEach var="lib" items="${pom.artifacts}">
+
+	<j:set var="idegaweb.application.cvsMethod" value="extssh"/>
+	<j:set var="idegaweb.application.cvsHost" value="code.idega.com"/>
+	<j:set var="idegaweb.application.cvsPath" value="/idega/cvs"/>
+	<j:set var="idegaweb.application.cvsModule" value="bundles"/>
+	
+	<j:set var="cvsString" value=":${idegaweb.application.cvsMethod}:${idegaweb.application.cvsHost}:${idegaweb.application.cvsPath}"/>
+	<j:set var="cvsDirString" value="${idegaweb.application.cvsModule}/${lib.dependency.artifactId}.bundle"/>
+	<j:set var="projectName" value="${lib.dependency.artifactId}"/>
+		
+    	<project reference="1.0,${cvsString},${cvsDirString},${projectName}"/>
+
+  </j:forEach>
+    
+	</provider>
+</psf>
+
+</j:whitespace>

@@ -16,7 +16,8 @@ public class IWApplicationTagLibrary extends TagLibrary {
 
 	
 	public IWApplicationTagLibrary(){
-		registerTag("mergewebinfs",WebInfMergeTag.class);
+		registerTag("mergewebxmls",WebXmlMergeTag.class);
+		registerTag("mergefacesconfigs",FacesConfigMergeTag.class);
 	}
 	
 }
