@@ -6,7 +6,7 @@
   <name>idegaWeb Application plugin</name>
   <groupId>maven-plugins</groupId>
   <artifactId>idegaweb-application-plugin</artifactId>
-  <currentVersion>1.2-SNAPSHOT</currentVersion>
+  <currentVersion>1.2</currentVersion>
   <organization/>
   <inceptionYear>2004</inceptionYear>
   <description>idegaweb Application Plugin for Maven</description>
@@ -28,6 +28,11 @@
       <name>1.1</name>
       <tag>APPLICATION_PLUGIN_1_1</tag>
     </version>
+    <version>
+      <id>1.2</id>
+      <name>1.2</name>
+      <tag>APPLICATION_PLUGIN_1_2</tag>
+    </version>
   </versions>
   <branches/>
   <mailingLists/>
@@ -44,7 +49,10 @@
     <dependency>
       <artifactId>com.idega.core</artifactId>
       <groupId>bundles</groupId>
+      <version>2.0.0</version>
+      <!--
       <version>SNAPSHOT</version>
+      -->
       <url>http://www.idega.com/</url>
       <properties>
         <eclipse.dependency>true</eclipse.dependency>
