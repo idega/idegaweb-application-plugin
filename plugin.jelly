@@ -158,8 +158,8 @@
 	         </ant:move>
 	         
 	         <!--Copy all .tlds from the bundle to the common WEB-INF/tld -->
-	         <!-- not longer needed -->
-	         <!--
+<!-- Not longer needed -->
+<!--
 	         <j:set var="idegaweb.application.bundle.tldsdir" value="${idegaweb.application.bundles.build.dir}/${dep.artifactId}.bundle/WEB-INF/tld/"/>
 	         <util:available file="${idegaweb.application.bundle.tldsdir}">
 		         <ant:move todir="${webapp.build.tlds}" >
@@ -168,8 +168,8 @@
 		         		<ant:filename name="**/*.tld"/>
 		         	</ant:fileset>
 		         </ant:move>
-	         </util:available>     
-	         --> 
+	         </util:available>      
+-->
 			
          </j:if> 
       <j:set var="targetPath" value="${dep.getProperty('war.target.path')}"/> 
@@ -179,13 +179,13 @@
     </j:forEach>
 	
 	<!-- Merge all bundle web.xmls to the common WEB-INF/web.xml -->
-	<!-- not longer needed -->
-	<!--
 	<iwapp:mergewebxmls tofile="${webapp.build.webxml}" 
 		bundlesfolder="${idegaweb.application.bundles.build.dir}"/>
-	-->
+
 
 	<!-- Set and copy WEB-INF/faces-config.xml -->
+<!-- Not longer needed -->
+<!--
 	<j:set var="webapp.build.facesconfigxml" value="${webapp.build.webinf}/faces-config.xml"/>
 	<j:set var="idegaweb.application.facesconfigxml" value="${idegaweb.application.src}/WEB-INF/faces-config.xml" />
 	<util:available file="${idegaweb.application.facesconfigxml}">
@@ -193,9 +193,12 @@
         tofile="${webapp.build.facesconfigxml}"
         overwrite="true" />
     </util:available>
+-->
 	<!-- Merge all bundle faces-config.xmls to the common WEB-INF/faces-config.xml -->
+<!--
 	<iwapp:mergefacesconfigs tofile="${webapp.build.facesconfigxml}" 
 		bundlesfolder="${idegaweb.application.bundles.build.dir}"/>		
+-->
 <!--
     <util:available file="${maven.build.dest}">
       <ant:copy todir="${webapp.build.classes}">
