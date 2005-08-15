@@ -23,7 +23,7 @@
   <!--==================================================================-->
   <!-- Initializations                                                  -->
   <!--==================================================================-->    
-  <goal name="iw-application:init"
+  <goal name="iw-application:init" prerequisite="clean"
     description="Initialize the file system and attain any necessary goals">
 
     <ant:available property="webSourcesPresent" type="dir"
@@ -31,6 +31,15 @@
 
     <ant:property name="idegaweb.application.final.name" 
       value="${pom.artifactId}-${pom.currentVersion}.war"/>
+
+	<!--Generating the product.properties -->
+        <ant:propertyfile file="WEB-INF/idegaweb/properties/product.properties" comment="Properties of this application product">
+                <ant:entry key="application.product.name" value="${pom.name}" />
+                <ant:entry key="application.product.version" value="${pom.currentVersion}" />
+                <ant:entry key="application.product.vendor" value="${pom.organization.name}" />
+                <ant:entry key="application.product.inceptionyear" value="${pom.inceptionYear}" />
+                <ant:entry key="application.product.build.id" type="date" value="now" pattern="yyyyMMdd.HHmmss" />
+        </ant:propertyfile>
  
   </goal>
   
