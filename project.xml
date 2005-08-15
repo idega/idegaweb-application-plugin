@@ -14,8 +14,8 @@
   <url>http://idega.com</url>
   <issueTrackingUrl>http://issues.idega.is</issueTrackingUrl>
   <repository>
-    <connection>scm:cvs:pserver:anoncvs@cvs.apache.org:/home/cvspublic:maven-plugins/war/</connection>
-    <developerConnection>scm:cvs:ext:${maven.username}@einstein.idega.is:/idega/cvs:maven-plugins/${pom.artifactId}/</developerConnection>
+    <connection>scm:cvs:ext:anoncvs@einstein.idega.is:/idega/cvs:maven-plugins/${pom.artifactId}/</connection>
+    <developerConnection>scm:cvs:ext:${cvs.username}@einstein.idega.is:/idega/cvs:maven-plugins/${pom.artifactId}/</developerConnection>
   </repository>
   <versions>
     <version>
