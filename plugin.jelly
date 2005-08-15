@@ -23,7 +23,7 @@
   <!--==================================================================-->
   <!-- Initializations                                                  -->
   <!--==================================================================-->    
-  <goal name="iw-application:init" prerequisite="clean"
+  <goal name="iw-application:init" prereqs="clean"
     description="Initialize the file system and attain any necessary goals">
 
     <ant:available property="webSourcesPresent" type="dir"
